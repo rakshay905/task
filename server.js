@@ -1,7 +1,6 @@
 // Modules to be required
 const express = require('express');
 const http = require('http');
-const https = require('https');
 const fs = require('fs')
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
@@ -31,16 +30,8 @@ app.use('/api', api);
 
 app.use(express.static(__dirname + '/dist/task'))
 
-
-/* app.get('*', function(req, res) {
-    res.sendFile(path + '/index.html');
-}); */
-
-// app.use('/api', api);
-
 app.get('*', (req, res) => {
-      res.sendFile(path.join(__dirname, `dist/task/index.html`));
-    // res.sendFile(path.join(__dirname, `dist/laddoo/${req.url}`));    
+      res.sendFile(path.join(__dirname, `dist/task/index.html`));  
   });
 
 app.use((req, res, next) => {
